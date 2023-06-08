@@ -1,13 +1,11 @@
-<form action="">
-    <label for="email">
-        <p>email</p>
-        <input type="text">
-    </label>
-    <label for="password">
-        <p>password</p>
-        <input type="password">
-    </label>
-    <button>
-        logar
-    </button>
-</form>
+    <div>
+        <label>Email:</label>
+        <input [(ngModel)]="email" type="email">
+      </div>
+      <div>
+        <label>Password:</label>
+        <input [(ngModel)]="password" type="password">
+      </div>
+      <div>
+        <button (click)="login()">Login</button>
+      </div>

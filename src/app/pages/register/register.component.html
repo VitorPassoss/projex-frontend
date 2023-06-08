@@ -1,13 +1,11 @@
-<form action="">
     <label for="email">
         <p>email</p>
-        <input type="text">
+        <input [(ngModel)]="username" type="email">
     </label>
     <label for="password">
         <p>password</p>
-        <input type="password">
+        <input [(ngModel)]="password" type="password">
     </label>
     <button>
-        cadastrar
+        <button (click)="cadastro()">Login</button>
     </button>
-</form>

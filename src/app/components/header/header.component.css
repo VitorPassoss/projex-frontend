@@ -1,0 +1,21 @@
+.header {
+    width: 100%;
+    padding: 15px 25px 15px 20px;
+    background-color: #fff ;
+    position: fixed;
+    z-index: 1;
+    box-shadow: 5px 1px 8px gray;
+}
+
+.header_struct {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
+
+.items a {
+    color: #55BDB3;
+    padding-right: 10px;
+    text-decoration: none;
+}
