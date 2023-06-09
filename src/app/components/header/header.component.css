@@ -1,10 +1,10 @@
 .header {
     width: 100%;
-    padding: 15px 25px 15px 20px;
+    padding: 25px 25px 25px 25px;
     background-color: #fff ;
     position: fixed;
     z-index: 1;
-    box-shadow: 5px 1px 8px gray;
+    box-shadow: 5px 1px 8px rgb(194, 194, 194);
 }
 
 .header_struct {
@@ -12,10 +12,22 @@
     flex-direction: row;
     align-items: center;
     justify-content: start;
+    padding-left: 60px;
 }
 
 .items a {
     color: #55BDB3;
-    padding-right: 10px;
+    padding-right: 30px;
     text-decoration: none;
+}
+
+.items p {
+    color: #55BDB3;
+    padding-right: 30px;
+    cursor: pointer;
+}
+
+
+.bi-list {
+    font-size: 25px;
 }

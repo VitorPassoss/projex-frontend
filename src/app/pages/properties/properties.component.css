@@ -1,0 +1,81 @@
+.cardStruct 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gridsystem
+{
+    width: 80%;
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+.card
+{
+    background-color: white;
+    box-shadow: 1px 1px 5px 1px rgb(220, 220, 220);
+    border-radius: 5px;
+}
+
+.image_attr 
+{
+    height: 180px;
+    width: 100%; 
+    object-fit: cover;
+}
+
+.card__content 
+{
+    padding: 4px;
+}
+
+.position_values
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.position_values p 
+{
+    color: #55BDB3;
+}
+
+.position_broken
+{
+    padding: 5px;
+}
+.position_broken p
+{
+    padding-top: 2px;
+    color: #55BDB3;
+}
+
+.action 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px 10px 20px;
+}
+
+.action a 
+{   
+  
+    background-color: #55BDB3;
+    padding: 8px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+  
+  

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Title }     from '@angular/platform-browser';
 
 
 
@@ -10,10 +11,20 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
 
+
   email: string = '';
   password: string = '';
+  title = 'Login';
 
-  constructor(private authService: AuthService) { }
+
+  constructor(
+    private authService: AuthService,
+    private titleService: Title
+  ) { }
+
+  public ngOnInit() {
+    this.titleService.setTitle(this.title);
+  }
 
   async login() {
     console.log('Email:', this.email);
@@ -22,5 +33,6 @@ export class LoginComponent {
       await this.authService.login(this.email, this.password);
     }
   }
+
 
 }

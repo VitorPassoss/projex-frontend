@@ -1,5 +1,33 @@
-<div class="cardsStruct">
+<div class="cardStruct">
     <div class="gridsystem">
-        
+        <div class="card" *ngFor="let property of properties">
+            <img class="image_attr" [src]="property.image_url" alt="Imagem do Imóvel">
+            <div class="card__content">
+                <div class="position_values">
+                    <p>Tipo Imovel:</p>
+                    <div [innerText]="getPropertyTypeDescription(property.property_type)"></div>
+                </div>
+                <div class="position_values">
+                    <p>Valor:</p>
+                    <div>{{ property.price }}</div>
+                </div>
+                <div class="position_values">
+                    <p>Quartos</p>
+                    <div>{{ property.bedrooms }}</div>
+                </div>
+                <div class="position_broken">
+                    <p>Endereço:</p>
+                    <div>{{ property.adress }}</div>
+                </div>
+
+                
+                <div class="action">
+                    <a >
+                        Confirmar venda
+                    </a>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>

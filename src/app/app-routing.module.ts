@@ -6,6 +6,10 @@ import { RegisterComponent } from './pages/register/register.component';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { PropertiesComponent } from './pages/properties/properties.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { FormpropsComponent } from './pages/formprops/formprops.component';
+import { ProfilesComponent } from './pages/profiles/profiles.component';
+
+
 
 
 const routes: Routes = [
@@ -16,12 +20,20 @@ const routes: Routes = [
     canActivate: [JwtAuthGuard],
     children: [
       {
-        path: 'properties',
+        path: 'profile',
+        component: ProfilesComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: 'properties/stock',
         component: PropertiesComponent
       },
       {
-        path: 'properties/dashboard',
-        component: DashboardComponent
+        path: 'properties/create',
+        component: FormpropsComponent
       }
     ] },
   { path: 'register',  component: RegisterComponent}

@@ -1,0 +1,102 @@
+.formStruct {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.formSystem {
+    width: 40%;
+    margin-top: 100px;
+}
+
+.form {
+    background-color: white;
+    padding: 40px;
+    width: 100%; 
+}
+
+
+.input_collumns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.input_struct {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* adicione isso */
+}
+
+.input_struct input {
+    background-color: white;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.input_struct input:focus {
+    background-color: white;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+.options
+{
+    margin-top: 10px;
+}
+
+.actions
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.actions button
+{
+    background-color: #55BDB3;
+    padding: 10px 100px 10px 100px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 20px;
+    color: white;
+}
+
+
+.header 
+{
+    color: #55BDB3;
+    margin-bottom: 6px;
+}
+
+.header_description
+{
+    color: gray;
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+
+
+.options input
+{
+    margin-top: 15px;
+}
+
+
+.options__text 
+{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.input_struct label
+{
+    font-size: 16px;
+    font-weight: 500;
+}

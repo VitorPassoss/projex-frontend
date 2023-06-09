@@ -1,0 +1,14 @@
+.form_struct
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.form_size
+{
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+}

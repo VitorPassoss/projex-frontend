@@ -11,6 +11,13 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PropertiesComponent } from './pages/properties/properties.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { TokenInterceptor } from './interceptors/auth.interceptor';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormpropsComponent } from './pages/formprops/formprops.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms'; // Importa o ReactiveFormsModule
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ProfilesComponent } from './pages/profiles/profiles.component'; // Importe o MatSnackBarModule
 
 @NgModule({
   declarations: [
@@ -21,14 +28,22 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     SidebarComponent,
     HeaderComponent,
     PropertiesComponent,
-    DashboardComponent
+    DashboardComponent,
+    FormpropsComponent,
+    ProfilesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatSnackBarModule 
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,74 @@
+<div class="formStruct">
+    <div class="formSystem">
+        <div class="form">
+            <h2 class="header">
+                Cadastrar Imovel
+            </h2>
+            <p class="header_description">
+                Neste formulario inclua os dados necessarios para cadastrar seu imovel na plataforma
+            </p>
+            
+            <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+                <div class="options">
+                    <p class="options__text">Qual o tipo de propriedade?</p>
+                    <div>
+                        <input type="radio" formControlName="property_type" value="C"> Casa 
+                    </div>
+                    <div>
+                        <input type="radio" formControlName="property_type" value="A"> Apartamento 
+                    </div>
+                    <div>
+                        <input type="radio" formControlName="property_type" value="T"> Terreno 
+                    </div>
+                </div>
+            
+                <div class="input_collumns">
+                    <div class="input_struct">
+                        <label>
+                            Valor Estimado
+                        </label>
+                        <input type="number" formControlName="price">
+                    </div>
+                    <div class="input_struct">
+                        <label>
+                            Por quanto foi comprado?
+                        </label>
+                        <input type="number" formControlName="price_buyer">
+                    </div>
+                    <div class="input_struct">
+                        <label>
+                            Qual endereço da propriedade?
+                        </label>
+                        <input type="text" formControlName="adress">
+                    </div>
+                    <div class="input_struct">
+                        <label>
+                            Qual a quantidade de quartos?
+                        </label>
+                        <input type="number" formControlName="bedrooms">
+                    </div>
+                    <div class="input_struct">
+                        <label>
+                            Quantos metros quadrados?
+                        </label>
+                        <input type="number" formControlName="size">
+                    </div>
+                </div>
+         
+                <div class="input_struct" style="margin-top: 40px;">
+                    <label>
+                        Escolha uma imagem
+                    </label>
+                    <input type="file" class="input_file"  (change)="onFileSelected($event)">
+                </div>
+                
+                <div class="actions">
+                    <button  type="submit">Confirmar</button>
+                </div>
+            </form>
+            
+
+            
+        </div>
+    </div>
+</div>

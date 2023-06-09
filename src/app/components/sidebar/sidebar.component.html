@@ -1,23 +1,35 @@
+
+
+
 <div [ngClass]="{ 'sidebar-open': sidebarService.isOpen$ | async, 'sidebar': true }">
-        <div class="sidebar_struct">
-                <div class="sidebar_items">
-                    <a href="" class="item">
-                        <i class="bi bi-house"></i>
-                        <p>Meus Imoveis</p>
-                    </a>
-                    <a href="" class="item">
-                        <i class="bi bi-house"></i>
-                        <p>Cadastrar Imoveis</p>
-                    </a>
-                    <a href="" class="item">
-                        <i class="bi bi-speedometer2"></i>
-                        <p>Dashboard</p>
-                    </a>
     
-                    <a href="" class="item">
-                        <i class="bi bi-person-fill"></i>
-                        <p>Editar Meu Perfil</p>
-                    </a>
-                </div>
+   
+    
+    <div class="sidebar_struct">
+      
+        <div class="sidebar_items">
+            <div class="icon_struct">
+                <i class="bi bi-x-lg" (click)="sidebarService.toggleSidebar()" ></i>
+            </div>
+
+            <a routerLink="/dashboard" class="item">
+                <i class="bi bi-speedometer2"></i>
+                <p>Dashboard</p>
+            </a>
+            <a routerLink="/properties/stock" class="item">
+                <i class="bi bi-house"></i>
+                <p>Estoque</p>
+            </a>
+            <a routerLink="/properties/create" class="item">
+                <i class="bi bi-house"></i>
+                <p>Cadastrar Imoveis</p>
+            </a>
+
+
+            <a routerLink="/profile" class="item">
+                <i class="bi bi-person-fill"></i>
+                <p>Editar Meu Perfil</p>
+            </a>
         </div>
+    </div>
 </div>
