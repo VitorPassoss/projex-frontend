@@ -45,18 +45,6 @@ export class DashboardComponent {
     }
   }
 
-  getPropertyTypeDescription(propertyType: string): string {
-    switch (propertyType) {
-      case 'C':
-        return 'Casa';
-      case 'T':
-        return 'Terreno';
-      case 'A':
-        return 'Apartamento';
-      default:
-        return 'Outro';
-    }
-  }
 
   async getDashboardInfo() {
     const url = environment.apiUrl + '/v1/dashboard/'
