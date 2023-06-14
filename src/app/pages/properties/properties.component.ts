@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
-import { Title }     from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 import { IProperty } from 'src/app/interfaces/properties.interface';
+import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { SellPropertyDialogComponent } from 'src/app/components/sell-property-dialog/sell-property-dialog.component';
+
 
 @Component({
   selector: 'app-properties',
@@ -13,18 +16,23 @@ export class PropertiesComponent implements OnInit {
   title = 'Estoque';
 
   constructor(
-    private titleService: Title
+    private titleService: Title,
+    private httpClient: HttpClient,
+    public dialog: MatDialog,
   ) { }
 
-  async getAll(){
-    const url = 'http://localhost:8000/property/v1';
+  async getAll() {
+    const url = 'http://localhost:8000/v1/property/';
     try {
-      const response = await axios.get(url);
-      this.properties = response.data.properties;
+      const response = await this.httpClient.get<{ properties: IProperty[] }>(url).toPromise();
+      if (response && response.properties) {
+        this.properties = response.properties;
+      } else {
+        console.error('Response or properties is undefined');
+      }
     } catch (error) {
       console.error(error);
     }
-    return;
   }
 
   getPropertyTypeDescription(propertyType: string): string {
@@ -39,6 +47,17 @@ export class PropertiesComponent implements OnInit {
         return 'Outro';
     }
   }
+
+  openSellDialog(property: IProperty): void {
+    const dialogRef = this.dialog.open(SellPropertyDialogComponent, {
+      data: property,
+    });
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  
 
   ngOnInit() {
     this.getAll();

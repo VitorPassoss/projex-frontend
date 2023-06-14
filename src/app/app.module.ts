@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -18,6 +17,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms'; // Importa o ReactiveFormsModule
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ProfilesComponent } from './pages/profiles/profiles.component'; // Importe o MatSnackBarModule
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SellPropertyDialogComponent } from './components/sell-property-dialog/sell-property-dialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';  // Importe MatFormFieldModule
+import { MatInputModule } from '@angular/material/input'; // Importe MatInputModule
 
 @NgModule({
   declarations: [
@@ -30,7 +34,8 @@ import { ProfilesComponent } from './pages/profiles/profiles.component'; // Impo
     PropertiesComponent,
     DashboardComponent,
     FormpropsComponent,
-    ProfilesComponent
+    ProfilesComponent,
+    SellPropertyDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,11 @@ import { ProfilesComponent } from './pages/profiles/profiles.component'; // Impo
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatSnackBarModule 
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    MatFormFieldModule,  // Adicione MatFormFieldModule
+    MatInputModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }

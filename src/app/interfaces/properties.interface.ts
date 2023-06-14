@@ -1,4 +1,5 @@
 export interface IProperty{
+    pk: number,
     price: number,
     property_type: string,
     adress: string,

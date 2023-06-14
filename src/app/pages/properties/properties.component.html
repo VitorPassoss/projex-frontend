@@ -8,8 +8,12 @@
                     <div [innerText]="getPropertyTypeDescription(property.property_type)"></div>
                 </div>
                 <div class="position_values">
-                    <p>Valor:</p>
+                    <p>Valor estimado:</p>
                     <div>{{ property.price }}</div>
+                </div>
+                <div class="position_values">
+                    <p>Valor de compra:</p>
+                    <div>{{ property.price_buyer }}</div>
                 </div>
                 <div class="position_values">
                     <p>Quartos</p>
@@ -22,10 +26,11 @@
 
                 
                 <div class="action">
-                    <a >
-                        Confirmar venda
+                    <a (click)="openSellDialog(property)">
+                      Confirmar venda
                     </a>
-                </div>
+                  </div>
+                  
 
             </div>
         </div>

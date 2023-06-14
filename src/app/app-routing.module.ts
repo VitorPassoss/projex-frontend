@@ -21,19 +21,23 @@ const routes: Routes = [
     children: [
       {
         path: 'profile',
-        component: ProfilesComponent
+        component: ProfilesComponent,
+        canActivate: [JwtAuthGuard],
       },
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: DashboardComponent,
+        canActivate: [JwtAuthGuard],
       },
       {
-        path: 'properties/stock',
-        component: PropertiesComponent
+        path: '',
+        component: PropertiesComponent,
+        canActivate: [JwtAuthGuard],
       },
       {
         path: 'properties/create',
-        component: FormpropsComponent
+        component: FormpropsComponent,
+        canActivate: [JwtAuthGuard],
       }
     ] },
   { path: 'register',  component: RegisterComponent}

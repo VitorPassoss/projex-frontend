@@ -5,6 +5,16 @@
             <p  (click)="sidebarService.toggleSidebar()" >
                 <i class="bi bi-list"></i>
             </p>
+
+            <p  (click)="authService.logout()" >
+                <i class="bi bi-box-arrow-left"></i>
+            </p>
+
+            
+        </div>
+
+        <div class="profile"  *ngIf="user"> <!-- Verifica se o usuário foi carregado -->
+            <i class="bi bi-person-circle"></i> {{user.username}} <!-- Exibe o username do usuário -->
         </div>
        
     </div>

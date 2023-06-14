@@ -11,4 +11,39 @@
     background-color: white;
     padding: 30px;
     border-radius: 8px;
+    margin-top: 10%;
+    width: 20%;
 }
+
+.form_size h1 {
+    margin-bottom: 20px;
+}
+
+.form_size input 
+{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+
+
+.form_size input:focus
+{
+    outline: none;
+}
+
+
+.form_size button 
+{
+    padding: 6px;
+    width: 100%;
+    margin-top: 25px;
+    background-color: #55BDB3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+

@@ -11,8 +11,13 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
-    padding-left: 60px;
+    justify-content: space-between;
+}
+
+.items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .items a {
@@ -30,4 +35,9 @@
 
 .bi-list {
     font-size: 25px;
+}
+
+
+.profile {
+    margin-right: 50px;
 }

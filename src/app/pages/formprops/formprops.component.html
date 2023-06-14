@@ -1,4 +1,9 @@
-<div class="formStruct">
+<div *ngIf="isLoading" class="position_loading">
+    <mat-spinner></mat-spinner>
+  </div>
+  
+
+<div  *ngIf="!isLoading" class="formStruct">
     <div class="formSystem">
         <div class="form">
             <h2 class="header">

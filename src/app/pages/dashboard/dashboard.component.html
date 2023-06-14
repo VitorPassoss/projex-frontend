@@ -1,1 +1,88 @@
-<p>dashboard works!</p>
+<div class="dashboard-header">
+    <div class="dashboard-header__size">
+        <div class="header-item">
+            <h2 *ngIf="DashboardInfo">
+              {{ DashboardInfo.properties_count.count_stock }}
+          </h2>
+            <p>Imoveis em Estoque</p>
+          </div>
+      
+          <div class="header-item">
+              <h2 *ngIf="DashboardInfo">
+                  {{ DashboardInfo.properties_count.count_seller }}
+              </h2>
+              <p>Imoveis vendidos</p>
+          </div>
+      
+          <div class="header-item">
+              <h2 *ngIf="DashboardInfo">
+                  {{ DashboardInfo.properties_count.count_total }}
+              </h2>
+              <p>Total de imoveis</p>
+          </div>
+          <div class="header-item">
+            <h2  *ngIf="DashboardInfo">
+              R$ {{ DashboardInfo.general_info.total_bought }} 
+          </h2>
+            <p>Valor Compras</p>
+          </div>
+          <div class="header-item">
+            <h2 *ngIf="DashboardInfo">
+              R$ {{ DashboardInfo.general_info.total_sold }} 
+            </h2>
+            <p>Valor Vendas</p>
+          </div>
+      
+          <div class="header-item">
+              <h2  *ngIf="DashboardInfo">
+                  {{ DashboardInfo.general_info.profit_margin }} %
+              </h2>
+              <p>Margem de lucro</p>
+          </div>
+        </div>
+
+    </div>
+
+
+  <div class="cardStruct">
+    <div class="gridsystem">
+        <div class="card" *ngFor="let property of properties">
+            <img class="image_attr" [src]="property.image_url" alt="Imagem do Imóvel">
+            <div class="card__content">
+                <div class="position_values">
+                    <p>Tipo Imovel:</p>
+                    <div [innerText]="getPropertyTypeDescription(property.property_type)"></div>
+                </div>
+                <div class="position_values">
+                    <p>Valor de compra:</p>
+                    <div>{{ property.price_buyer }}</div>
+                </div>
+
+                <div class="position_values">
+                    <p>Valor de venda:</p>
+                    <div>{{ property.price_seller }}</div>
+                </div>
+                <div class="position_values">
+                    <p>Quartos</p>
+                    <div>{{ property.bedrooms }}</div>
+                </div>
+                <div class="position_values">
+                    <p>Margem de lucro:</p>
+                    <div>{{ getProfitMargin(property) | number: '1.0-2' }} %</div>
+                  </div>
+                <div class="position_broken">
+                    <p>Endereço:</p>
+                    <div>{{ property.adress }}</div>
+                </div>
+
+               
+                  
+
+            
+
+            </div>
+        </div>
+    </div>
+</div>
+
+  

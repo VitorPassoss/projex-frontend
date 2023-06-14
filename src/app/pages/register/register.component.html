@@ -1,11 +1,19 @@
-    <label for="email">
-        <p>email</p>
-        <input [(ngModel)]="username" type="email">
-    </label>
-    <label for="password">
-        <p>password</p>
-        <input [(ngModel)]="password" type="password">
-    </label>
-    <button>
-        <button (click)="cadastro()">Login</button>
-    </button>
+    
+    <div class="form_struct"> 
+        <div class="form_size">
+            <form [formGroup]="registerForm" (ngSubmit)="cadastro()">
+                <label for="email">
+                    <h1>Register</h1>
+                    <p>email</p>
+                    <input formControlName="email" type="email">
+                </label>
+                    <label for="password">
+                        <p>password</p>
+                        <input formControlName="password" type="password">
+                    </label>
+                    <div>
+                        <button type="submit">Register</button>
+                    </div>
+            </form>
+        </div>
+    </div>

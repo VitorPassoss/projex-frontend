@@ -1,0 +1,48 @@
+.form_struct
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.form_size
+{
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 10%;
+    width: 20%;
+}
+
+.form_size h3 {
+    margin-bottom: 20px;
+}
+
+.form_size input 
+{
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+}
+
+
+.form_size input:focus
+{
+    outline: none;
+}
+
+
+.form_size button 
+{
+    padding: 8px;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #55BDB3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+
