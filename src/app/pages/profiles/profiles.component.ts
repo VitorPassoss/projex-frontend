@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { IUser } from 'src/app/interfaces/user.interface';
 import { AuthService } from 'src/app/services/auth.service';
+import { environment } from 'src/app/environment.custom';
 
 
 
@@ -42,7 +43,7 @@ export class ProfilesComponent {
 
 
   async getDataUser() {
-    const url = 'http://localhost:8000/v1/auth/user/';
+    const url = environment.apiUrl + '/v1/auth/user/';
 
     try {
       const response = await this.httpClient.get<{ user:IUser }>(url).toPromise();

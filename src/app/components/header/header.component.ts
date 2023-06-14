@@ -4,6 +4,8 @@ import { SidebarService } from 'src/app/services/sidebar.service';
 import { IUser } from 'src/app/interfaces/user.interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { Subscription } from 'rxjs';
+import { environment } from 'src/app/environment.custom';
+
 
 @Component({
   selector: 'app-header',
@@ -38,7 +40,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
    async getDataUser() {
-    const url = 'http://localhost:8000/v1/auth/user/';
+    const url = environment.apiUrl + '/v1/auth/user/';
     
     try {
       const response = await this.httpClient.get<{ user:IUser }>(url).toPromise();

@@ -1,8 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import axios from 'axios';
-import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
+import { Router } from '@angular/router';
+import { environment } from 'src/app/environment.custom';
 
 @Injectable({
   providedIn: 'root'
@@ -13,48 +12,44 @@ export class AuthService {
   constructor(
     private router: Router,
     private httpClient: HttpClient
-    ) { }
+  ) { }
 
   async register(username: string, password: string) {
-    const url = 'http://localhost:8000/v1/auth/register/';
+    const url = environment.apiUrl + '/v1/auth/register/';
     try {
-      const response = await axios.post(url, { username, password });
+      const response: any = await this.httpClient.post(url, { username, password }).toPromise();
       this.router.navigate(['/login']);
-      return response.data;
+      return response;
     } catch (error) {
-      console.error(error);
-      return null;
+      return error;
     }
   }
 
   async login(email: string, password: string) {
-    const url = 'http://localhost:8000/v1/auth/login/';
+    const url = environment.apiUrl + '/v1/auth/login/';
     try {
-      const response = await axios.post(url, { email, password });
-      localStorage.setItem('access_token', response.data.access_token);
+      const response: any = await this.httpClient.post(url, { email, password }).toPromise();
+      localStorage.setItem('access_token', response.access_token);
       this.router.navigate(['']);
-      return response.data;
+      return response;
     } catch (error) {
-      console.error(error);
-      return null;
+      return error;
     }
   }
 
-  async updateUser(email:string, password:string){
-    const url = 'http://localhost:8000/v1/auth/user/';
+  async updateUser(email: string, password: string) {
+    const url = environment.apiUrl + '/v1/auth/user/';
     try {
-      const response = await this.httpClient.post(url, { email, password }).toPromise();
+      const response: any = await this.httpClient.post(url, { email, password }).toPromise();
       this.userUpdated.emit();
-      return response
-    } catch (err) {
-      console.error(err);
-      return null
+      return response;
+    } catch (error) {
+      return error;
     }
   }
 
-  async logout(){
+  async logout() {
     localStorage.removeItem('access_token');
     this.router.navigate(['login']);
   }
-
 }

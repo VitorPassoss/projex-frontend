@@ -36,11 +36,14 @@ export class LoginComponent implements OnInit {
       const password = this.loginForm.get('password')!.value;
 
       try {
-        await this.authService.login(email, password);
+        let response = await this.authService.login(email, password);
+        if(response.error){
+          this.snackBar.open('error!', response.error.message, {
+            duration: 2000,
+          });
+        }  
       } catch (error) {
-        this.snackBar.open('Erro ao realizar login!', 'Fechar', {
-          duration: 2000,
-        });
+        console.log(error)
       }
 
     } else {

@@ -4,6 +4,7 @@ import { IProperty } from 'src/app/interfaces/properties.interface';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { SellPropertyDialogComponent } from 'src/app/components/sell-property-dialog/sell-property-dialog.component';
+import { environment } from 'src/app/environment.custom';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class PropertiesComponent implements OnInit {
   ) { }
 
   async getAll() {
-    const url = 'http://localhost:8000/v1/property/';
+    const url = environment.apiUrl + '/v1/property/';
     try {
       const response = await this.httpClient.get<{ properties: IProperty[] }>(url).toPromise();
       if (response && response.properties) {
@@ -54,7 +55,7 @@ export class PropertiesComponent implements OnInit {
     });
     
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+     
     });
   }
   

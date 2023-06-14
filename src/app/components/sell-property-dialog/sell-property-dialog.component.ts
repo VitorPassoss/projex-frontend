@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { IProperty } from 'src/app/interfaces/properties.interface';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
+import { environment } from 'src/app/environment.custom';
 
 
 
@@ -38,7 +39,7 @@ export class SellPropertyDialogComponent implements OnInit {
 
 
   async updateSellingPrice(pk: number, sellingPrice: number) {
-    const url = `http://localhost:8000/v1/property/`;
+    const url = environment.apiUrl + `/v1/property/`;
     console.log(sellingPrice)
     this.router.navigate(['/dashboard']);
     let response = this.httpClient.post(url, { 

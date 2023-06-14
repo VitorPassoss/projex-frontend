@@ -33,14 +33,15 @@ export class RegisterComponent {
       if (this.registerForm.valid) {
         const email = this.registerForm.get('email')!.value;
         const password = this.registerForm.get('password')!.value;
-        console.log(email)
-        console.log(password)
         try {
-          await this.authService.register(email, password);
+          let response = await this.authService.register(email, password);
+          if(response.error){
+            this.snackBar.open('error!', response.error?.username, {
+              duration: 2000,
+            });
+          }
         } catch (error) {
-          this.snackBar.open('Erro ao realizar login!', 'Fechar', {
-            duration: 2000,
-          });
+          console.log(error)
         }
       } else {
         this.snackBar.open('Preencha corretamente o formulário!', 'Fechar', {

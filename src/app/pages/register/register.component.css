@@ -46,4 +46,10 @@
     cursor: pointer;
 }
 
+.form_size p {
+    font-size: 12px;
+    color: gray;
+    margin-top: 10px;
+}
+
 

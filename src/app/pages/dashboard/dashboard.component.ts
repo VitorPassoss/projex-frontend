@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Title }     from '@angular/platform-browser';
 import { IDashboardData } from 'src/app/interfaces/dashboard.interface';
 import { IProperty } from 'src/app/interfaces/properties.interface';
+import { environment } from 'src/app/environment.custom';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class DashboardComponent {
   }
 
   async getAll() {
-    const url = 'http://localhost:8000/v1/property/history/';
+    const url = environment.apiUrl + '/v1/property/history/';
     try {
       const response = await this.httpClient.get<{ properties: IProperty[] }>(url).toPromise();
       if (response && response.properties) {
@@ -58,7 +59,7 @@ export class DashboardComponent {
   }
 
   async getDashboardInfo() {
-    const url = 'http://localhost:8000/v1/dashboard/'
+    const url = environment.apiUrl + '/v1/dashboard/'
     try {
       this.httpClient.get<IDashboardData>(url).subscribe(data => {
         this.DashboardInfo = data
@@ -69,12 +70,12 @@ export class DashboardComponent {
   }
 
   getProfitMargin(property: IProperty): number {
-    if (property.price_seller && property.price_seller !== 0) {
-      return ((property.price_seller - property.price_buyer) / property.price_seller) * 100;
-    } else {
-      return 0;
-    }
+  if (property.price_seller && property.price_seller !== 0) {
+    return ((property.price_seller - property.price_buyer) / property.price_seller) * 100;
+  } else {
+    return 0;
   }
-  
+}
+
 
 }

@@ -2,18 +2,15 @@
     <div class="form_struct"> 
         <div class="form_size">
             <form [formGroup]="registerForm" (ngSubmit)="cadastro()">
-                <label for="email">
-                    <h1>Register</h1>
-                    <p>email</p>
-                    <input formControlName="email" type="email">
-                </label>
-                    <label for="password">
-                        <p>password</p>
-                        <input formControlName="password" type="password">
-                    </label>
-                    <div>
-                        <button type="submit">Register</button>
-                    </div>
+                <h1>Register</h1>
+                <label>Email:</label>
+                <input formControlName="email" type="email">
+                    <label>Password:</label>
+                    <input formControlName="password" type="password">
+                <div>
+                    <button type="submit">Register</button>
+                </div>
+                <p>Se você já possui uma conta registrada, clique <a routerLink="/login">aqui</a> para fazer login.</p>
             </form>
         </div>
     </div>

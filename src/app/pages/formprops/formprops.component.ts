@@ -5,6 +5,7 @@ import { UploadService } from 'src/app/services/upload.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { environment } from 'src/app/environment.custom';
 
 @Component({
   selector: 'app-formprops',
@@ -46,6 +47,7 @@ export class FormpropsComponent implements OnInit {
   }
 
   async onSubmit() {
+    const url = environment.apiUrl + '/v1/property/create/'
     if (this.propertyForm.valid) {
       this.isLoading = true; 
       if (this.selectedFile) {
@@ -55,7 +57,7 @@ export class FormpropsComponent implements OnInit {
           if (imageUrlControl) {
             imageUrlControl.setValue(imageUrl);
           }
-          await this.httpClient.post('http://localhost:8000/v1/property/create/', this.propertyForm.value).toPromise();
+          await this.httpClient.post(url, this.propertyForm.value).toPromise();
           this.snackBar.open('Property submitted successfully!', 'Close', { duration: 2000 });
           this.router.navigate(['/']);
         } catch (err) {
